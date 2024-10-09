@@ -18,43 +18,45 @@ import jakarta.persistence.Table;
 public class Ordenes {
 	@Id
 	@GeneratedValue(strategy =GenerationType.IDENTITY)
-	private long OrdenID;
+	private long ordenId;
+
 	@Column(name = "clienteID")
-	private String ClienteID;
+	private String clienteID;
+
 	@ManyToOne
 	@JoinColumn(name = "LibroID", referencedColumnName = "LibroID")
 	@JsonBackReference
 	private Libros libros;
-	
+
 	@Column(name = "FechaDeOrden")
-	private LocalDate FechaOrden;
+	private LocalDate fechaOrden;
 
 	public Ordenes() {
 		super();
 	}
 
-	public Ordenes(long ordenID, String clienteID, Libros libros, LocalDate fechaOrden) {
+	public Ordenes(long ordenId, String clienteID, Libros libros, LocalDate fechaOrden) {
 		super();
-		OrdenID = ordenID;
-		ClienteID = clienteID;
+		this.ordenId = ordenId;
+		this.clienteID = clienteID;
 		this.libros = libros;
-		FechaOrden = fechaOrden;
+		this.fechaOrden = fechaOrden;
 	}
 
-	public long getOrdenID() {
-		return OrdenID;
+	public long getOrdenId() {
+		return ordenId;
 	}
 
-	public void setOrdenID(long ordenID) {
-		OrdenID = ordenID;
+	public void setOrdenId(long ordenId) {
+		this.ordenId = ordenId;
 	}
 
 	public String getClienteID() {
-		return ClienteID;
+		return clienteID;
 	}
 
 	public void setClienteID(String clienteID) {
-		ClienteID = clienteID;
+		this.clienteID = clienteID;
 	}
 
 	public Libros getLibros() {
@@ -66,11 +68,10 @@ public class Ordenes {
 	}
 
 	public LocalDate getFechaOrden() {
-		return FechaOrden;
+		return fechaOrden;
 	}
 
 	public void setFechaOrden(LocalDate fechaOrden) {
-		FechaOrden = fechaOrden;
+		this.fechaOrden = fechaOrden;
 	}
-
 }

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="'Editar Libro'">Editar Libro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="text-center">Editar Libro</h1>
+
+    <form th:action="@{/SaveLibros}" th:object="${libro}" method="post">
+        <input id="libroId" type="hidden" th:field="*{libroId}" /> <!-- Campo oculto para el ID del libro -->
+
+        <div class="mb-3">
+            <label for="titulo" class="form-label">TÍTULO:</label>
+            <input id="titulo" type="text" th:field="*{titulo}" class="form-control" placeholder="Ingrese el título del libro" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="nombreAutor" class="form-label">NOMBRE DEL AUTOR:</label>
+            <input id="nombreAutor" type="text" th:field="*{nombreAutor}" class="form-control" placeholder="Ingrese el nombre del autor" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="apellidoAutor" class="form-label">APELLIDO DEL AUTOR:</label>
+            <input id="apellidoAutor" type="text" th:field="*{apellidoAutor}" class="form-control" placeholder="Ingrese el apellido del autor" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="categoria" class="form-label">CATEGORÍA:</label>
+            <input id="categoria" type="text" th:field="*{categoria}" class="form-control" placeholder="Ingrese la categoría del libro" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="precio" class="form-label">PRECIO:</label>
+            <input id="precio" type="number" step="0.01" th:field="*{precio}" class="form-control" placeholder="Ingrese el precio del libro" required>
+        </div>
+
+        <button type="submit" class="btn btn-success">Guardar Cambios</button>
+        <a th:href="@{/libros}" class="btn btn-danger">Cancelar</a>
+    </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-COyE9CfDX7WoB3vLHTO5r+UN9pXHEZLlT/a4jNczE1KqLh5eY/2mQZGmX1r1n/mD" crossorigin="anonymous"></script>
+</body>
+</html>

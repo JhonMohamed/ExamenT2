@@ -12,79 +12,100 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
-
 @Entity
 @Table(name = "libros")
 public class Libros {
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-private long LibroID;
-@Column(name = "titulo")
-private String Titulo;
-@Column(name = "nombreAutor")
-private String NombreAutor;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long libroId;
 
-@Column(name = "apellidoAutor")
-private String ApellidoAutor;
+	@Column(name = "titulo")
+	private String titulo;
 
-@Column(name = "categoria")
-private String Categoria;
-@Column(name = "precio")
-private String Precio;
+	@Column(name = "nombreAutor")
+	private String nombreAutor;
 
-@OneToMany(mappedBy = "libros")
-@JsonManagedReference
-private List<Ordenes> ordenes;
+	@Column(name = "apellidoAutor")
+	private String apellidoAutor; // Renombrar a apellidoAutor
 
+	@Column(name = "categoria")
+	private String categoria;
 
+	@Column(name = "precio")
+	private String precio;
 
-public Libros() {
-	super();
-}
-public Libros(long libroID, String titulo, String nombreAutor, String categoria, String precio, List<Ordenes> ordenes) {
-	super();
-	LibroID = libroID;
-	Titulo = titulo;
-	NombreAutor = nombreAutor;
-	Categoria = categoria;
-	Precio = precio;
-	this.ordenes = ordenes;
-}
-public long getLibroID() {
-	return LibroID;
-}
-public void setLibroID(long libroID) {
-	LibroID = libroID;
-}
-public String getTitulo() {
-	return Titulo;
-}
-public void setTitulo(String titulo) {
-	Titulo = titulo;
-}
-public String getNombreAutor() {
-	return NombreAutor;
-}
-public void setNombreAutor(String nombreAutor) {
-	NombreAutor = nombreAutor;
-}
-public String getCategoria() {
-	return Categoria;
-}
-public void setCategoria(String categoria) {
-	Categoria = categoria;
-}
-public String getPrecio() {
-	return Precio;
-}
-public void setPrecio(String precio) {
-	Precio = precio;
-}
-public List<Ordenes> getOrdenes() {
-	return ordenes;
-}
-public void setOrdenes(List<Ordenes> ordenes) {
-	this.ordenes = ordenes;
-}
+	@OneToMany(mappedBy = "libros")
+	@JsonManagedReference
+	private List<Ordenes> ordenes;
 
+	public Libros() {
+		super();
+	}
+
+	public Libros(long libroId, String titulo, String nombreAutor, String apellidoAutor, String categoria, String precio, List<Ordenes> ordenes) {
+		super();
+		this.libroId = libroId;
+		this.titulo = titulo;
+		this.nombreAutor = nombreAutor;
+		this.apellidoAutor = apellidoAutor;
+		this.categoria = categoria;
+		this.precio = precio;
+		this.ordenes = ordenes;
+	}
+
+	public long getLibroId() {
+		return libroId;
+	}
+
+	public void setLibroId(long libroId) {
+		this.libroId = libroId;
+	}
+
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
+	public String getNombreAutor() {
+		return nombreAutor;
+	}
+
+	public void setNombreAutor(String nombreAutor) {
+		this.nombreAutor = nombreAutor;
+	}
+
+	public String getApellidoAutor() {
+		return apellidoAutor;
+	}
+
+	public void setApellidoAutor(String apellidoAutor) {
+		this.apellidoAutor = apellidoAutor;
+	}
+
+	public String getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
+	}
+
+	public String getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(String precio) {
+		this.precio = precio;
+	}
+
+	public List<Ordenes> getOrdenes() {
+		return ordenes;
+	}
+
+	public void setOrdenes(List<Ordenes> ordenes) {
+		this.ordenes = ordenes;
+	}
 }

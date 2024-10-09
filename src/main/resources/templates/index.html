@@ -213,115 +213,85 @@
     </section>
     <section class="section" id="pricing">
         <div class="container text-center">
-            <h6 class="display-4 has-line">PRICING OPTIONS</h6>
-            <p class="mb-5 pb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <div class="row pt-5">
-                <div class="col-lg-4">
-                    <a href="javascript:void(0)" class="pricing-card">
-                        <div class="head">Basib</div>
-                        <div class="body">
-                            <h1><small>$</small>0</h1>
-                            <p>Free for Life</p>
-                        </div>
-                        <ul class="list-group">
-                            <li class="list-group-item">1 GB OF SPACE</li>
-                            <li class="list-group-item">10 GB OF BANDWIDTH</li>
-                            <li class="list-group-item">3 WEBSITES</li>
-                            <li class="list-group-item">BASIC CUSTOMIZATION</li>
-                            <li class="list-group-item">WORDPRESS INTEGRATION</li>
-                            <li class="list-group-item">EMAIL SUPPORT</li>
-                        </ul>
-                    </a>
-                </div>
-                <div class="col-lg-4">
-                    <a href="javascript:void(0)" class="pricing-card popular">
-                        <div class="head">Professional</div>
-                        <div class="body">
-                            <h1><small>$</small>14.99</h1>
-                            <p>Monthly Payment</p>
-                        </div>
-                        <div class="popular-item">OUR MOST POPULAR</div>
-                        <ul class="list-group">
-                            <li class="list-group-item">5 GB OF SPACE</li>
-                            <li class="list-group-item">50 GB OF BANDWIDTH</li>
-                            <li class="list-group-item">10 WEBSITES</li>
-                            <li class="list-group-item">ADVANCED CUSTOMIZATION</li>
-                            <li class="list-group-item">WORDPRESS INTEGRATION</li>
-                            <li class="list-group-item">EMAIL SUPPORT</li>
-                        </ul>
-                    </a>
-                </div>
-                <div class="col-lg-4">
-                    <a href="javascript:void(0)" class="pricing-card">
-                        <div class="head">Enterprise</div>
-                        <div class="body">
-                            <h1><small>$</small>99</h1>
-                            <p>Monthly Payment</p>
-                        </div>
-                        <ul class="list-group">
-                            <li class="list-group-item">UNLIMITED OF SPACE</li>
-                            <li class="list-group-item">UNLIMITED BANDWIDTH</li>
-                            <li class="list-group-item">120 WEBSITES</li>
-                            <li class="list-group-item">ADVANCED CUSTOMIZATION</li>
-                            <li class="list-group-item">WORDPRESS INTEGRATION</li>
-                            <li class="list-group-item">EMAIL SUPPORT</li>
-                        </ul>
-                    </a>
-                </div>
+            <h6 class="display-4 has-line">ÓRDENES</h6>
+            <p class="mb-5 pb-4">A continuación se muestra la lista de órdenes realizadas:</p>
+
+            <!-- Botón para agregar una nueva orden -->
+            <div>
+                <a th:href="@{/templates/AddOrden.html}" class="btn btn-primary btn-sm mb-3">Agregar Nueva Orden</a>
+            </div>
+            <br>
+
+            <!-- Tabla para mostrar las órdenes -->
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>ORDEN ID</th>
+                        <th>CLIENTE ID</th>
+                        <th>LIBRO ID</th>
+                        <th>TÍTULO DEL LIBRO</th>
+                        <th>FECHA DE ORDEN</th>
+                        <th>ACCIONES</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="orden : ${listOrdenes}">
+                        <td th:text="${orden.ordenID}"></td>
+                        <td th:text="${orden.clienteID}"></td>
+                        <td th:text="${orden.libros.libroId}"></td>
+                        <td th:text="${orden.libros.titulo}"></td>
+                        <td th:text="${orden.fechaOrden}"></td>
+                        <td>
+                            <a th:href="@{/UpdateOrdenes/{id}(id=${orden.ordenID})}" class="btn btn-warning">Actualizar</a>
+                            <a th:href="@{/DeleteOrdenes/{id}(id=${orden.ordenID})}" class="btn btn-danger">Eliminar</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>
     <section class="section" id="review">
         <div class="container text-center">
-            <h6 class="display-4 has-line">WHAT OUR CUSTOMERS ARE SAYING</h6>
-            <p class="mb-5 pb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <div class="row text-left">
-                <div class="col-md-4">
-                    <div class="testmonial">                        
-                        <p class="description"><i>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, eaque, repellat. Corporis facilis reprehenderit, cupiditate.</i></p>
-                        <div class="media">
-                            <img class="mr-3" src="assets/imgs/avatar1.jpg" width="60" alt="Generic placeholder image">
-                            <div class="media-body">
-                                <h6 class="title">Emma Re</h6>
-                                <p class="text-muted">Web Designer</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="testmonial">                        
-                        <p class="description"><i>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, eaque, repellat. Corporis facilis reprehenderit, cupiditate.</i></p>
-                        <div class="media">
-                            <img class="mr-3" src="assets/imgs/avatar2.jpg" width="60" alt="Generic placeholder image">
-                            <div class="media-body">
-                                <h6 class="title">John Doe</h6>
-                                <p class="text-muted">Freelancer</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="testmonial">                        
-                        <p class="description"><i>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, eaque, repellat. Corporis facilis reprehenderit, cupiditate.</i></p>
-                        <div class="media">
-                            <img class="mr-3" src="assets/imgs/avatar3.jpg" width="60" alt="Generic placeholder image">
-                            <div class="media-body">
-                                <h6 class="title">Emily Roe</h6>
-                                <p class="text-muted">Graphic Designer</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>              
+            <h6 class="display-4 has-line">LIBROS</h6>
+            <p class="mb-5 pb-4">A continuación se muestra la lista de libros disponibles:</p>
+            <div>
+                <a th:href="@{/AgregarLibros}" class="btn btn-primary btn-sm mb-3">Agregar Nuevo Libro</a>
+            </div>
+            <br>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>LIBROID</th>
+                        <th>TÍTULO</th>
+                        <th>NOMBRE AUTOR</th>
+                        <th>APELLIDO AUTOR</th>
+                        <th>CATEGORÍA</th>
+                        <th>PRECIO</th>
+                        <th>ACCIONES</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="libro : ${libros}">
+                        <td th:text="${libro.libroId}"></td>
+                        <td th:text="${libro.titulo}"></td>
+                        <td th:text="${libro.nombreAutor}"></td>
+                        <td th:text="${libro.apellidoAutor}"></td>
+                        <td th:text="${libro.categoria}"></td>
+                        <td th:text="${libro.precio}"></td>
+                        <td>
+                            <a th:href="@{/VerLibros/{id}(id=${libro.libroId})}" class="btn btn-warning">Editar</a>
+                            <a th:href="@{/BorrarLibros/{id}(id=${libro.libroId})}" class="btn btn-danger">Eliminar</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>
-    <section class="section has-img-bg text-center">
-        <div class="container">
-            <h6 class="display-3 has-line">STYLISH AXURE DESIGN</h6>
-            <h5 class="mb-5 font-weight-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, itaque.</h5>
-            <button class="btn btn-outline-light btn-flat">Download</button>
-        </div>
-    </section>
+
     <section class="section" id="contact">
         <div class="container text-center">
             <h6 class="display-4 has-line">CONTACT US</h6>

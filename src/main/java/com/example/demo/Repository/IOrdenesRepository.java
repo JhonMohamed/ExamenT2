@@ -1,5 +1,11 @@
 package com.example.demo.Repository;
 
-public interface IOrdenesRepository {
+import com.example.demo.Model.Ordenes;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface IOrdenesRepository extends JpaRepository<Ordenes,Long> {
+
 
 }
