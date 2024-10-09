@@ -24,7 +24,7 @@ public class Ordenes {
 	private String clienteID;
 
 	@ManyToOne
-	@JoinColumn(name = "LibroID", referencedColumnName = "LibroID")
+	@JoinColumn(name = "libroId", referencedColumnName = "libroId")
 	@JsonBackReference
 	private Libros libros;
 

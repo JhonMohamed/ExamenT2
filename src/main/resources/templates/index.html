@@ -215,14 +215,10 @@
         <div class="container text-center">
             <h6 class="display-4 has-line">ÓRDENES</h6>
             <p class="mb-5 pb-4">A continuación se muestra la lista de órdenes realizadas:</p>
-
-            <!-- Botón para agregar una nueva orden -->
             <div>
-                <a th:href="@{/templates/AddOrden.html}" class="btn btn-primary btn-sm mb-3">Agregar Nueva Orden</a>
+                <a th:href="@{/AgregarOrdenes}" class="btn btn-primary btn-sm mb-3">Agregar Nueva Orden</a>
             </div>
             <br>
-
-            <!-- Tabla para mostrar las órdenes -->
             <div class="table-responsive">
                 <table class="table table-bordered">
                     <thead>
@@ -236,15 +232,15 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:each="orden : ${listOrdenes}">
-                        <td th:text="${orden.ordenID}"></td>
+                    <tr th:each="orden : ${ordenes}">
+                        <td th:text="${orden.ordenId}"></td>
                         <td th:text="${orden.clienteID}"></td>
                         <td th:text="${orden.libros.libroId}"></td>
                         <td th:text="${orden.libros.titulo}"></td>
                         <td th:text="${orden.fechaOrden}"></td>
                         <td>
-                            <a th:href="@{/UpdateOrdenes/{id}(id=${orden.ordenID})}" class="btn btn-warning">Actualizar</a>
-                            <a th:href="@{/DeleteOrdenes/{id}(id=${orden.ordenID})}" class="btn btn-danger">Eliminar</a>
+                            <a th:href="@{/VerOrden/{id}(id=${orden.ordenId})}" class="btn btn-warning">Actualizar</a>
+                            <a th:href="@{/BorrarOrdenes/{id}(id=${orden.ordenId})}" class="btn btn-danger">Eliminar</a>
                         </td>
                     </tr>
                     </tbody>

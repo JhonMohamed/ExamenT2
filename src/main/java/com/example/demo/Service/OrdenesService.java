@@ -21,8 +21,8 @@ public class OrdenesService {
         return repository.findAll();
     }
 
-    public Optional<Ordenes> findOneById(Long id) {
-        return repository.findById(id);
+    public Optional<Ordenes> findOneById(Long ordenID) {
+        return repository.findById(ordenID);
     }
 
     public Ordenes save(Ordenes ordenes) {
@@ -34,7 +34,7 @@ public class OrdenesService {
         return repository.save(ordenes);
     }
 
-    public void delete(Long id) {
-        repository.deleteById(id);
+    public void delete(Long ordenId) {
+        repository.deleteById(ordenId);
     }
 }

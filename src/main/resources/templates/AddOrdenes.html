@@ -2,9 +2,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="'Agregar Nuevo Libro'">Agregar Nueva Orden</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
+<div class="container mt-5">
+    <h1 class="text-center">Agregar Nueva Orden</h1>
 
+    <form th:action="@{/SaveOrdenes}" th:object="${ordenes}" method="post">
+        <input id="ordenId" type="hidden" th:field="*{ordenId}" />
+        <div class="mb-3">
+            <label for="clienteID" class="form-label">ID del cliente:</label>
+            <input id="clienteID" type="text" th:field="*{clienteID}" class="form-control" placeholder="Ingrese el título del libro" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="libroId" class="form-label">ID del libro:</label>
+            <input id="libroId" type="text" th:field="*{libros.libroId}" class="form-control" placeholder="Ingrese el nombre del autor" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="FechaDeOrden" class="form-label">Fecha de Orden:</label>
+            <input id="FechaDeOrden" type="date" th:field="*{fechaOrden}" class="form-control" placeholder="Ingrese el apellido del autor" required>
+        </div>
+        <button type="submit" class="btn btn-success">Guardar Orden</button>
+        <a th:href="@{/ordenes}" class="btn btn-danger">Cancelar</a>
+    </form>
+</div>
+
+<!-- Scripts opcionales para Bootstrap -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-COyE9CfDX7WoB3vLHTO5r+UN9pXHEZLlT/a4jNczE1KqLh5eY/2mQZGmX1r1n/mD" crossorigin="anonymous"></script>
 </body>
 </html>
